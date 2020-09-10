@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Produto
 
@@ -35,6 +35,12 @@ def contato(request):
 
 
 def produto(request, id):
-    context = Produto.objects.get(id=id)
+    # context = Produto.objects.get(id=id)
+    # procura um id, caso não encontre retorna para página 404
+    context = get_object_or_404(Produto, id=id)
 
-    return render(request, 'produto.html', {'produto':context})
+    return render(request, 'produto.html', {'produto': context})
+
+
+def error404(request):
+    render(request, 'error404.html')
