@@ -1,4 +1,6 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.template import loader
 
 from .models import Produto
 
@@ -42,5 +44,11 @@ def produto(request, id):
     return render(request, 'produto.html', {'produto': context})
 
 
-def error404(request):
-    render(request, 'error404.html')
+def error404(request, expection):
+    template = loader.get_template('404.html')
+    return HttpResponse(content=template.render(), content_type='text/html; charset=utf8', status=404)
+
+
+def error500(request):
+    template = loader.get_template('500.html')
+    return HttpResponse(content=template.render(), content_type='text/html; charset=utf8', status=500)
