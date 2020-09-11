@@ -1,13 +1,8 @@
-from django.shortcuts import render
+from django.urls import path, include
+from .views import index, produto, contato
 
-
-def index(request):
-    return render(request, 'index.html')
-
-
-def contato(request):
-    return render(request, 'contato.html')
-
-
-def produto(request):
-    return render(request, 'produto.html')
+urlpatterns = [
+    path('', index, name='index'),
+    path('contato/', contato, name='contato'),
+    path('produto/', produto, name='produto'),
+]
