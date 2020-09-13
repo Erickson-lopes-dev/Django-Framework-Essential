@@ -130,5 +130,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+"""
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = 'no-reply@fusion.com.br'
+EMAIL_PORT = 587
+EMAIL.USER_TSL = True
+EMAIL.HOST_PASSWORD = 'fusion
+DEFAULT_FROM_EMAIL = contato@fusion.com.br
+
+"""
 
